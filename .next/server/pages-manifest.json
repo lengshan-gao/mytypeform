@@ -1,0 +1,12 @@
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/api/surveys/list": "pages/api/surveys/list.js",
+  "/thank-you": "pages/thank-you.js",
+  "/surveys": "pages/surveys.js",
+  "/": "pages/index.js",
+  "/login": "pages/login.js",
+  "/create-weighted-survey": "pages/create-weighted-survey.js",
+  "/api/auth/login": "pages/api/auth/login.js"
+}
