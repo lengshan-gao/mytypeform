@@ -27,17 +27,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         surveyId: id
       },
       include: {
-        responseItems: {
+        question: {
           include: {
-            question: {
-              include: {
-                parent: true,
-                options: true
-              }
-            },
-            option: true
+            parent: true,
+            options: true
           }
-        }
+        },
+        option: true
       },
       orderBy: {
         submittedAt: 'desc'
@@ -45,22 +41,20 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     })
 
     // 转换数据结构，便于前端使用
-    const formattedResponses = responses.flatMap(response => 
-      response.responseItems.map(item => ({
-        questionId: item.questionId,
-        optionId: item.optionId,
-        option: {
-          score: item.option?.score || 0
-        },
-        question: {
-          content: item.question.content,
-          weight: item.question.weight,
-          parent: item.question.parent ? {
-            content: item.question.parent.content
-          } : null
-        }
-      }))
-    )
+    const formattedResponses = responses.map(response => ({
+      questionId: response.questionId,
+      optionId: response.optionId,
+      option: {
+        score: response.option?.score || 0
+      },
+      question: {
+        content: response.question.content,
+        weight: response.question.weight,
+        parent: response.question.parent ? {
+          content: response.question.parent.content
+        } : null
+      }
+    }))
 
     return res.status(200).json({
       success: true,

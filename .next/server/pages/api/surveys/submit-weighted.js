@@ -1,45 +1,208 @@
 "use strict";
-/*
- * ATTENTION: An "eval-source-map" devtool has been used.
- * This devtool is neither made for production nor for readable output files.
- * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
- * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
- * or disable the default devtool with "devtool: false".
- * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
- */
 (() => {
 var exports = {};
-exports.id = "pages/api/surveys/submit-weighted";
-exports.ids = ["pages/api/surveys/submit-weighted"];
+exports.id = 449;
+exports.ids = [449];
 exports.modules = {
 
-/***/ "@prisma/client":
-/*!*********************************!*\
-  !*** external "@prisma/client" ***!
-  \*********************************/
+/***/ 3524:
 /***/ ((module) => {
 
 module.exports = require("@prisma/client");
 
 /***/ }),
 
-/***/ "(api)/./lib/prisma.ts":
-/*!***********************!*\
-  !*** ./lib/prisma.ts ***!
-  \***********************/
+/***/ 8047:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"prisma\": () => (/* binding */ prisma)\n/* harmony export */ });\n/* harmony import */ var _prisma_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @prisma/client */ \"@prisma/client\");\n/* harmony import */ var _prisma_client__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_prisma_client__WEBPACK_IMPORTED_MODULE_0__);\n\nconst globalForPrisma = globalThis;\nconst prisma = globalForPrisma.prisma ?? new _prisma_client__WEBPACK_IMPORTED_MODULE_0__.PrismaClient();\nif (true) globalForPrisma.prisma = prisma;\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwaSkvLi9saWIvcHJpc21hLnRzLmpzIiwibWFwcGluZ3MiOiI7Ozs7OztBQUE2QztBQUU3QyxNQUFNQyxlQUFlLEdBQUdDLFVBQVU7QUFJM0IsTUFBTUMsTUFBTSxHQUFHRixlQUFlLENBQUNFLE1BQU0sSUFBSSxJQUFJSCx3REFBWSxFQUFFO0FBRWxFLElBQUlJLElBQXFDLEVBQUVILGVBQWUsQ0FBQ0UsTUFBTSxHQUFHQSxNQUFNIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vc3VydmV5LXN5c3RlbS8uL2xpYi9wcmlzbWEudHM/OTgyMiJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBQcmlzbWFDbGllbnQgfSBmcm9tICdAcHJpc21hL2NsaWVudCdcblxuY29uc3QgZ2xvYmFsRm9yUHJpc21hID0gZ2xvYmFsVGhpcyBhcyB1bmtub3duIGFzIHtcbiAgcHJpc21hOiBQcmlzbWFDbGllbnQgfCB1bmRlZmluZWRcbn1cblxuZXhwb3J0IGNvbnN0IHByaXNtYSA9IGdsb2JhbEZvclByaXNtYS5wcmlzbWEgPz8gbmV3IFByaXNtYUNsaWVudCgpXG5cbmlmIChwcm9jZXNzLmVudi5OT0RFX0VOViAhPT0gJ3Byb2R1Y3Rpb24nKSBnbG9iYWxGb3JQcmlzbWEucHJpc21hID0gcHJpc21hIl0sIm5hbWVzIjpbIlByaXNtYUNsaWVudCIsImdsb2JhbEZvclByaXNtYSIsImdsb2JhbFRoaXMiLCJwcmlzbWEiLCJwcm9jZXNzIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(api)/./lib/prisma.ts\n");
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "_": () => (/* binding */ prisma)
+/* harmony export */ });
+/* harmony import */ var _prisma_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3524);
+/* harmony import */ var _prisma_client__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_prisma_client__WEBPACK_IMPORTED_MODULE_0__);
+
+const globalForPrisma = globalThis;
+const prisma = globalForPrisma.prisma ?? new _prisma_client__WEBPACK_IMPORTED_MODULE_0__.PrismaClient();
+if (false) {}
+
 
 /***/ }),
 
-/***/ "(api)/./pages/api/surveys/submit-weighted.ts":
-/*!**********************************************!*\
-  !*** ./pages/api/surveys/submit-weighted.ts ***!
-  \**********************************************/
+/***/ 6222:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ handler)\n/* harmony export */ });\n/* harmony import */ var _lib_prisma__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/lib/prisma */ \"(api)/./lib/prisma.ts\");\n\nasync function handler(req, res) {\n    if (req.method !== \"POST\") {\n        return res.status(405).json({\n            success: false,\n            message: \"方法不允许\"\n        });\n    }\n    try {\n        const { surveyId , answers  } = req.body;\n        // 验证必填字段\n        if (!surveyId) {\n            return res.status(400).json({\n                success: false,\n                message: \"问卷ID不能为空\"\n            });\n        }\n        if (!answers || !Array.isArray(answers) || answers.length === 0) {\n            return res.status(400).json({\n                success: false,\n                message: \"请完成所有维度的评分\"\n            });\n        }\n        // 验证问卷是否存在\n        const survey = await _lib_prisma__WEBPACK_IMPORTED_MODULE_0__.prisma.survey.findUnique({\n            where: {\n                id: surveyId\n            },\n            include: {\n                questions: {\n                    where: {\n                        type: \"DIMENSION\"\n                    },\n                    include: {\n                        options: true\n                    }\n                }\n            }\n        });\n        if (!survey) {\n            return res.status(404).json({\n                success: false,\n                message: \"问卷不存在\"\n            });\n        }\n        // 检查问卷是否过期\n        if (survey.expiresAt && new Date(survey.expiresAt) < new Date()) {\n            return res.status(400).json({\n                success: false,\n                message: \"问卷已过期\"\n            });\n        }\n        // 验证所有维度是否都已选择\n        const allDimensions = survey.questions;\n        const answeredDimensionIds = answers.map((a)=>a.dimensionId);\n        const unselectedDimensions = allDimensions.filter((dim)=>!answeredDimensionIds.includes(dim.id));\n        if (unselectedDimensions.length > 0) {\n            return res.status(400).json({\n                success: false,\n                message: `请完成所有维度的评分：${unselectedDimensions.map((d)=>d.content).join(\"、\")}`\n            });\n        }\n        // 验证选项是否有效\n        for (const answer of answers){\n            const dimension = allDimensions.find((d)=>d.id === answer.dimensionId);\n            if (!dimension) {\n                return res.status(400).json({\n                    success: false,\n                    message: `无效的维度ID: ${answer.dimensionId}`\n                });\n            }\n            const option = dimension.options.find((o)=>o.id === answer.optionId);\n            if (!option) {\n                return res.status(400).json({\n                    success: false,\n                    message: `无效的选项ID: ${answer.optionId}`\n                });\n            }\n        }\n        // 创建回答记录 - 为每个维度创建单独的Response记录\n        // 为每次提交生成唯一的用户ID，避免唯一约束冲突\n        const userId = `anonymous_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;\n        // 使用事务创建所有回答记录\n        const responses = await _lib_prisma__WEBPACK_IMPORTED_MODULE_0__.prisma.$transaction(answers.map((answer)=>_lib_prisma__WEBPACK_IMPORTED_MODULE_0__.prisma.response.create({\n                data: {\n                    surveyId,\n                    userId,\n                    questionId: answer.dimensionId,\n                    optionId: answer.optionId,\n                    submittedAt: new Date()\n                },\n                include: {\n                    question: true,\n                    option: true\n                }\n            })));\n        // 计算项目得分\n        const projectScores = await calculateProjectScores(surveyId, answers);\n        res.status(200).json({\n            success: true,\n            message: \"问卷提交成功\",\n            data: {\n                responseIds: responses.map((r)=>r.id),\n                projectScores\n            }\n        });\n    } catch (error) {\n        console.error(\"提交权重问卷失败:\", error);\n        res.status(500).json({\n            success: false,\n            message: \"服务器内部错误\",\n            error: error instanceof Error ? error.message : \"未知错误\"\n        });\n    }\n}\nasync function calculateProjectScores(surveyId, answers) {\n    // 获取问卷的项目和维度结构\n    const survey = await _lib_prisma__WEBPACK_IMPORTED_MODULE_0__.prisma.survey.findUnique({\n        where: {\n            id: surveyId\n        },\n        include: {\n            questions: {\n                where: {\n                    OR: [\n                        {\n                            type: \"PROJECT\"\n                        },\n                        {\n                            type: \"DIMENSION\"\n                        }\n                    ]\n                },\n                include: {\n                    options: true,\n                    children: {\n                        include: {\n                            options: true\n                        }\n                    }\n                }\n            }\n        }\n    });\n    if (!survey) return [];\n    const projectScores = survey.questions.filter((q)=>q.type === \"PROJECT\").map((project)=>{\n        const dimensions = project.children;\n        let totalScore = 0;\n        dimensions.forEach((dimension)=>{\n            const answer = answers.find((a)=>a.dimensionId === dimension.id);\n            if (answer) {\n                const option = dimension.options.find((o)=>o.id === answer.optionId);\n                if (option) {\n                    // 计算维度得分：选项分数 × 维度权重\n                    totalScore += option.score * dimension.weight;\n                }\n            }\n        });\n        return {\n            projectId: project.id,\n            projectName: project.content,\n            score: Math.round(totalScore * 100) / 100 // 保留两位小数\n        };\n    });\n    return projectScores;\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwaSkvLi9wYWdlcy9hcGkvc3VydmV5cy9zdWJtaXQtd2VpZ2h0ZWQudHMuanMiLCJtYXBwaW5ncyI6Ijs7Ozs7QUFDcUM7QUFFdEIsZUFBZUMsT0FBTyxDQUNuQ0MsR0FBbUIsRUFDbkJDLEdBQW9CLEVBQ3BCO0lBQ0EsSUFBSUQsR0FBRyxDQUFDRSxNQUFNLEtBQUssTUFBTSxFQUFFO1FBQ3pCLE9BQU9ELEdBQUcsQ0FBQ0UsTUFBTSxDQUFDLEdBQUcsQ0FBQyxDQUFDQyxJQUFJLENBQUM7WUFDMUJDLE9BQU8sRUFBRSxLQUFLO1lBQ2RDLE9BQU8sRUFBRSxPQUFPO1NBQ2pCLENBQUM7SUFDSixDQUFDO0lBRUQsSUFBSTtRQUNGLE1BQU0sRUFBRUMsUUFBUSxHQUFFQyxPQUFPLEdBQUUsR0FBR1IsR0FBRyxDQUFDUyxJQUFJO1FBRXRDLFNBQVM7UUFDVCxJQUFJLENBQUNGLFFBQVEsRUFBRTtZQUNiLE9BQU9OLEdBQUcsQ0FBQ0UsTUFBTSxDQUFDLEdBQUcsQ0FBQyxDQUFDQyxJQUFJLENBQUM7Z0JBQzFCQyxPQUFPLEVBQUUsS0FBSztnQkFDZEMsT0FBTyxFQUFFLFVBQVU7YUFDcEIsQ0FBQztRQUNKLENBQUM7UUFFRCxJQUFJLENBQUNFLE9BQU8sSUFBSSxDQUFDRSxLQUFLLENBQUNDLE9BQU8sQ0FBQ0gsT0FBTyxDQUFDLElBQUlBLE9BQU8sQ0FBQ0ksTUFBTSxLQUFLLENBQUMsRUFBRTtZQUMvRCxPQUFPWCxHQUFHLENBQUNFLE1BQU0sQ0FBQyxHQUFHLENBQUMsQ0FBQ0MsSUFBSSxDQUFDO2dCQUMxQkMsT0FBTyxFQUFFLEtBQUs7Z0JBQ2RDLE9BQU8sRUFBRSxZQUFZO2FBQ3RCLENBQUM7UUFDSixDQUFDO1FBRUQsV0FBVztRQUNYLE1BQU1PLE1BQU0sR0FBRyxNQUFNZixpRUFBd0IsQ0FBQztZQUM1Q2lCLEtBQUssRUFBRTtnQkFBRUMsRUFBRSxFQUFFVCxRQUFRO2FBQUU7WUFDdkJVLE9BQU8sRUFBRTtnQkFDUEMsU0FBUyxFQUFFO29CQUNUSCxL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Q0MsV0FBVyxLQUFLUyxTQUFTLENBQUNwQixFQUFFLENBQUM7WUFDaEUsSUFBSW1CLE1BQU0sRUFBRTtnQkFDVixNQUFNRyxNQUFNLEdBQUdGLFNBQVMsQ0FBQ2hCLE9BQU8sQ0FBQ2lCLElBQUksQ0FBQ0UsQ0FBQUEsQ0FBQyxHQUFJQSxDQUFDLENBQUN2QixFQUFFLEtBQUttQixNQUFNLENBQUNLLFFBQVEsQ0FBQztnQkFDcEUsSUFBSUYsTUFBTSxFQUFFO29CQUNWLHFCQUFxQjtvQkFDckI2QixVQUFVLElBQUk3QixNQUFNLENBQUMrQixLQUFLLEdBQUdqQyxTQUFTLENBQUNrQyxNQUFNO2dCQUMvQyxDQUFDO1lBQ0gsQ0FBQztRQUNILENBQUMsQ0FBQztRQUVGLE9BQU87WUFDTEMsU0FBUyxFQUFFTixPQUFPLENBQUNqRCxFQUFFO1lBQ3JCd0QsV0FBVyxFQUFFUCxPQUFPLENBQUNoQyxPQUFPO1lBQzVCb0MsS0FBSyxFQUFFMUIsSUFBSSxDQUFDOEIsS0FBSyxDQUFDTixVQUFVLEdBQUcsR0FBRyxDQUFDLEdBQUcsR0FBRyxDQUFDLFNBQVM7U0FDcEQ7SUFDSCxDQUFDLENBQUM7SUFFSixPQUFPWixhQUFhO0FBQ3RCLENBQUMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zdXJ2ZXktc3lzdGVtLy4vcGFnZXMvYXBpL3N1cnZleXMvc3VibWl0LXdlaWdodGVkLnRzPzk5MmEiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgTmV4dEFwaVJlcXVlc3QsIE5leHRBcGlSZXNwb25zZSB9IGZyb20gJ25leHQnXG5pbXBvcnQgeyBwcmlzbWEgfSBmcm9tICdAL2xpYi9wcmlzbWEnXG5cbmV4cG9ydCBkZWZhdWx0IGFzeW5jIGZ1bmN0aW9uIGhhbmRsZXIoXG4gIHJlcTogTmV4dEFwaVJlcXVlc3QsXG4gIHJlczogTmV4dEFwaVJlc3BvbnNlXG4pIHtcbiAgaWYgKHJlcS5tZXRob2QgIT09ICdQT1NUJykge1xuICAgIHJldHVybiByZXMuc3RhdHVzKDQwNSkuanNvbih7IFxuICAgICAgc3VjY2VzczogZmFsc2UsIFxuICAgICAgbWVzc2FnZTogJ+aWueazleS4jeWFgeiuuCcgXG4gICAgfSlcbiAgfVxuXG4gIHRyeSB7XG4gICAgY29uc3QgeyBzdXJ2ZXlJZCwgYW5zd2VycyB9ID0gcmVxLmJvZHlcblxuICAgIC8vIOmqjOivgeW/heWhq+Wtl+autVxuICAgIGlmICghc3VydmV5SWQpIHtcbiAgICAgIHJldHVybiByZXMuc3RhdHVzKDQwMCkuanNvbih7XG4gICAgICAgIHN1Y2Nlc3M6IGZhbHNlLFxuICAgICAgICBtZXNzYWdlOiAn6Zeu5Y23SUTkuI3og73kuLrnqbonXG4gICAgICB9KVxuICAgIH1cblxuICAgIGlmICghYW5zd2VycyB8fCAhQXJyYXkuaXNBcnJheShhbnN3ZXJzKSB8fCBhbnN3ZXJzLmxlbmd0aCA9PT0gMCkge1xuICAgICAgcmV0dXJuIHJlcy5zdGF0dXMoNDAwKS5qc29uKHtcbiAgICAgICAgc3VjY2VzczogZmFsc2UsXG4gICAgICAgIG1lc3NhZ2U6ICfor7flrozmiJDmiYDmnInnu7TluqbnmoTor4TliIYnXG4gICAgICB9KVxuICAgIH1cblxuICAgIC8vIOmqjOivgemXruWNt+aYr+WQpuWtmOWcqFxuICAgIGNvbnN0IHN1cnZleSA9IGF3YWl0IHByaXNtYS5zdXJ2ZXkuZmluZFVuaXF1ZSh7XG4gICAgICB3aGVyZTogeyBpZDogc3VydmV5SWQgfSxcbiAgICAgIGluY2x1ZGU6IHtcbiAgICAgICAgcXVlc3Rpb25zOiB7XG4gICAgICAgICAgd2hlcmU6IHtcbiAgICAgICAgICAgIHR5cGU6ICdESU1FTlNJT04nXG4gICAgICAgICAgfSxcbiAgICAgICAgICBpbmNsdWRlOiB7XG4gICAgICAgICAgICBvcHRpb25zOiB0cnVlXG4gICAgICAgICAgfVxuICAgICAgICB9XG4gICAgICB9XG4gICAgfSlcblxuICAgIGlmICghc3VydmV5KSB7XG4gICAgICByZXR1cm4gcmVzLnN0YXR1cyg0MDQpLmpzb24oe1xuICAgICAgICBzdWNjZXNzOiBmYWxzZSxcbiAgICAgICAgbWVzc2FnZTogJ+mXruWNt+S4jeWtmOWcqCdcbiAgICAgIH0pXG4gICAgfVxuXG4gICAgLy8g5qOA5p+l6Zeu5Y235piv5ZCm6L+H5pyfXG4gICAgaWYgKHN1cnZleS5leHBpcmVzQXQgJiYgbmV3IERhdGUoc3VydmV5LmV4cGlyZXNBdCkgPCBuZXcgRGF0ZSgpKSB7XG4gICAgICByZXR1cm4gcmVzLnN0YXR1cyg0MDApLmpzb24oe1xuICAgICAgICBzdWNjZXNzOiBmYWxzZSxcbiAgICAgICAgbWVzc2FnZTogJ+mXruWNt+W3sui/h+acnydcbiAgICAgIH0pXG4gICAgfVxuXG4gICAgLy8g6aqM6K+B5omA5pyJ57u05bqm5piv5ZCm6YO95bey6YCJ5oupXG4gICAgY29uc3QgYWxsRGltZW5zaW9ucyA9IHN1cnZleS5xdWVzdGlvbnNcbiAgICBjb25zdCBhbnN3ZXJlZERpbWVuc2lvbklkcyA9IGFuc3dlcnMubWFwKGEgPT4gYS5kaW1lbnNpb25JZClcbiAgICBjb25zdCB1bnNlbGVjdGVkRGltZW5zaW9ucyA9IGFsbERpbWVuc2lvbnMuZmlsdGVyKGRpbSA9PiAhYW5zd2VyZWREaW1lbnNpb25JZHMuaW5jbHVkZXMoZGltLmlkKSlcblxuICAgIGlmICh1bnNlbGVjdGVkRGltZW5zaW9ucy5sZW5ndGggPiAwKSB7XG4gICAgICByZXR1cm4gcmVzLnN0YXR1cyg0MDApLmpzb24oe1xuICAgICAgICBzdWNjZXNzOiBmYWxzZSxcbiAgICAgICAgbWVzc2FnZTogYOivt+WujOaIkOaJgOaciee7tOW6pueahOivhOWIhu+8miR7dW5zZWxlY3RlZERpbWVuc2lvbnMubWFwKGQgPT4gZC5jb250ZW50KS5qb2luKCfjgIEnKX1gXG4gICAgICB9KVxuICAgIH1cblxuICAgIC8vIOmqjOivgemAiemhueaYr+WQpuacieaViFxuICAgIGZvciAoY29uc3QgYW5zd2VyIG9mIGFuc3dlcnMpIHtcbiAgICAgIGNvbnN0IGRpbWVuc2lvbiA9IGFsbERpbWVuc2lvbnMuZmluZChkID0+IGQuaWQgPT09IGFuc3dlci5kaW1lbnNpb25JZClcbiAgICAgIGlmICghZGltZW5zaW9uKSB7XG4gICAgICAgIHJldHVybiByZXMuc3RhdHVzKDQwMCkuanNvbih7XG4gICAgICAgICAgc3VjY2VzczogZmFsc2UsXG4gICAgICAgICAgbWVzc2FnZTogYOaXoOaViOeahOe7tOW6pklEOiAke2Fuc3dlci5kaW1lbnNpb25JZH1gXG4gICAgICAgIH0pXG4gICAgICB9XG5cbiAgICAgIGNvbnN0IG9wdGlvbiA9IGRpbWVuc2lvbi5vcHRpb25zLmZpbmQobyA9PiBvLmlkID09PSBhbnN3ZXIub3B0aW9uSWQpXG4gICAgICBpZiAoIW9wdGlvbikge1xuICAgICAgICByZXR1cm4gcmVzLnN0YXR1cyg0MDApLmpzb24oe1xuICAgICAgICAgIHN1Y2Nlc3M6IGZhbHNlLFxuICAgICAgICAgIG1lc3NhZ2U6IGDml6DmlYjnmoTpgInpoblJRDogJHthbnN3ZXIub3B0aW9uSWR9YFxuICAgICAgICB9KVxuICAgICAgfVxuICAgIH1cblxuICAgIC8vIOWIm+W7uuWbnuetlOiusOW9lSAtIOS4uuavj+S4que7tOW6puWIm+W7uuWNleeLrOeahFJlc3BvbnNl6K6w5b2VXG4gICAgLy8g5Li65q+P5qyh5o+Q5Lqk55Sf5oiQ5ZSv5LiA55qE55So5oi3SUTvvIzpgb/lhY3llK/kuIDnuqbmnZ/lhrLnqoFcbiAgICBjb25zdCB1c2VySWQgPSBgYW5vbnltb3VzXyR7RGF0ZS5ub3coKX1fJHtNYXRoLnJhbmRvbSgpLnRvU3RyaW5nKDM2KS5zdWJzdHIoMiwgOSl9YFxuICAgIFxuICAgIC8vIOS9v+eUqOS6i+WKoeWIm+W7uuaJgOacieWbnuetlOiusOW9lVxuICAgIGNvbnN0IHJlc3BvbnNlcyA9IGF3YWl0IHByaXNtYS4kdHJhbnNhY3Rpb24oXG4gICAgICBhbnN3ZXJzLm1hcChhbnN3ZXIgPT4gXG4gICAgICAgIHByaXNtYS5yZXNwb25zZS5jcmVhdGUoe1xuICAgICAgICAgIGRhdGE6IHtcbiAgICAgICAgICAgIHN1cnZleUlkLFxuICAgICAgICAgICAgdXNlcklkLFxuICAgICAgICAgICAgcXVlc3Rpb25JZDogYW5zd2VyLmRpbWVuc2lvbklkLFxuICAgICAgICAgICAgb3B0aW9uSWQ6IGFuc3dlci5vcHRpb25JZCxcbiAgICAgICAgICAgIHN1Ym1pdHRlZEF0OiBuZXcgRGF0ZSgpLFxuICAgICAgICAgIH0sXG4gICAgICAgICAgaW5jbHVkZToge1xuICAgICAgICAgICAgcXVlc3Rpb246IHRydWUsXG4gICAgICAgICAgICBvcHRpb246IHRydWVcbiAgICAgICAgICB9XG4gICAgICAgIH0pXG4gICAgICApXG4gICAgKVxuXG4gICAgLy8g6K6h566X6aG555uu5b6X5YiGXG4gICAgY29uc3QgcHJvamVjdFNjb3JlcyA9IGF3YWl0IGNhbGN1bGF0ZVByb2plY3RTY29yZXMoc3VydmV5SWQsIGFuc3dlcnMpXG5cbiAgICByZXMuc3RhdHVzKDIwMCkuanNvbih7XG4gICAgICBzdWNjZXNzOiB0cnVlLFxuICAgICAgbWVzc2FnZTogJ+mXruWNt+aPkOS6pOaIkOWKnycsXG4gICAgICBkYXRhOiB7XG4gICAgICAgIHJlc3BvbnNlSWRzOiByZXNwb25zZXMubWFwKHIgPT4gci5pZCksXG4gICAgICAgIHByb2plY3RTY29yZXNcbiAgICAgIH1cbiAgICB9KVxuXG4gIH0gY2F0Y2ggKGVycm9yKSB7XG4gICAgY29uc29sZS5lcnJvcign5o+Q5Lqk5p2D6YeN6Zeu5Y235aSx6LSlOicsIGVycm9yKVxuICAgIHJlcy5zdGF0dXMoNTAwKS5qc29uKHtcbiAgICAgIHN1Y2Nlc3M6IGZhbHNlLFxuICAgICAgbWVzc2FnZTogJ+acjeWKoeWZqOWGhemDqOmUmeivrycsXG4gICAgICBlcnJvcjogZXJyb3IgaW5zdGFuY2VvZiBFcnJvciA/IGVycm9yLm1lc3NhZ2UgOiAn5pyq55+l6ZSZ6K+vJ1xuICAgIH0pXG4gIH1cbn1cblxuYXN5bmMgZnVuY3Rpb24gY2FsY3VsYXRlUHJvamVjdFNjb3JlcyhzdXJ2ZXlJZDogc3RyaW5nLCBhbnN3ZXJzOiBhbnlbXSkge1xuICAvLyDojrflj5bpl67ljbfnmoTpobnnm67lkoznu7Tluqbnu5PmnoRcbiAgY29uc3Qgc3VydmV5ID0gYXdhaXQgcHJpc21hLnN1cnZleS5maW5kVW5pcXVlKHtcbiAgICB3aGVyZTogeyBpZDogc3VydmV5SWQgfSxcbiAgICBpbmNsdWRlOiB7XG4gICAgICBxdWVzdGlvbnM6IHtcbiAgICAgICAgd2hlcmU6IHtcbiAgICAgICAgICBPUjogW1xuICAgICAgICAgICAgeyB0eXBlOiAnUFJPSkVDVCcgfSxcbiAgICAgICAgICAgIHsgdHlwZTogJ0RJTUVOU0lPTicgfVxuICAgICAgICAgIF1cbiAgICAgICAgfSxcbiAgICAgICAgaW5jbHVkZToge1xuICAgICAgICAgIG9wdGlvbnM6IHRydWUsXG4gICAgICAgICAgY2hpbGRyZW46IHtcbiAgICAgICAgICAgIGluY2x1ZGU6IHtcbiAgICAgICAgICAgICAgb3B0aW9uczogdHJ1ZVxuICAgICAgICAgICAgfVxuICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgICAgfVxuICAgIH1cbiAgfSlcblxuICBpZiAoIXN1cnZleSkgcmV0dXJuIFtdXG5cbiAgY29uc3QgcHJvamVjdFNjb3JlcyA9IHN1cnZleS5xdWVzdGlvbnNcbiAgICAuZmlsdGVyKHEgPT4gcS50eXBlID09PSAnUFJPSkVDVCcpXG4gICAgLm1hcChwcm9qZWN0ID0+IHtcbiAgICAgIGNvbnN0IGRpbWVuc2lvbnMgPSBwcm9qZWN0LmNoaWxkcmVuXG4gICAgICBsZXQgdG90YWxTY29yZSA9IDBcblxuICAgICAgZGltZW5zaW9ucy5mb3JFYWNoKGRpbWVuc2lvbiA9PiB7XG4gICAgICAgIGNvbnN0IGFuc3dlciA9IGFuc3dlcnMuZmluZChhID0+IGEuZGltZW5zaW9uSWQgPT09IGRpbWVuc2lvbi5pZClcbiAgICAgICAgaWYgKGFuc3dlcikge1xuICAgICAgICAgIGNvbnN0IG9wdGlvbiA9IGRpbWVuc2lvbi5vcHRpb25zLmZpbmQobyA9PiBvLmlkID09PSBhbnN3ZXIub3B0aW9uSWQpXG4gICAgICAgICAgaWYgKG9wdGlvbikge1xuICAgICAgICAgICAgLy8g6K6h566X57u05bqm5b6X5YiG77ya6YCJ6aG55YiG5pWwIMOXIOe7tOW6puadg+mHjVxuICAgICAgICAgICAgdG90YWxTY29yZSArPSBvcHRpb24uc2NvcmUgKiBkaW1lbnNpb24ud2VpZ2h0XG4gICAgICAgICAgfVxuICAgICAgICB9XG4gICAgICB9KVxuXG4gICAgICByZXR1cm4ge1xuICAgICAgICBwcm9qZWN0SWQ6IHByb2plY3QuaWQsXG4gICAgICAgIHByb2plY3ROYW1lOiBwcm9qZWN0LmNvbnRlbnQsXG4gICAgICAgIHNjb3JlOiBNYXRoLnJvdW5kKHRvdGFsU2NvcmUgKiAxMDApIC8gMTAwIC8vIOS/neeVmeS4pOS9jeWwj+aVsFxuICAgICAgfVxuICAgIH0pXG5cbiAgcmV0dXJuIHByb2plY3RTY29yZXNcbn0iXSwibmFtZXMiOlsicHJpc21hIiwiaGFuZGxlciIsInJlcSIsInJlcyIsIm1ldGhvZCIsInN0YXR1cyIsImpzb24iLCJzdWNjZXNzIiwibWVzc2FnZSIsInN1cnZleUlkIiwiYW5zd2VycyIsImJvZHkiLCJBcnJheSIsImlzQXJyYXkiLCJsZW5ndGgiLCJzdXJ2ZXkiLCJmaW5kVW5pcXVlIiwid2hlcmUiLCJpZCIsImluY2x1ZGUiLCJxdWVzdGlvbnMiLCJ0eXBlIiwib3B0aW9ucyIsImV4cGlyZXNBdCIsIkRhdGUiLCJhbGxEaW1lbnNpb25zIiwiYW5zd2VyZWREaW1lbnNpb25JZHMiLCJtYXAiLCJhIiwiZGltZW5zaW9uSWQiLCJ1bnNlbGVjdGVkRGltZW5zaW9ucyIsImZpbHRlciIsImRpbSIsImluY2x1ZGVzIiwiZCIsImNvbnRlbnQiLCJqb2luIiwiYW5zd2VyIiwiZGltZW5zaW9uIiwiZmluZCIsIm9wdGlvbiIsIm8iLCJvcHRpb25JZCIsInVzZXJJZCIsIm5vdyIsIk1hdGgiLCJyYW5kb20iLCJ0b1N0cmluZyIsInN1YnN0ciIsInJlc3BvbnNlcyIsIiR0cmFuc2FjdGlvbiIsInJlc3BvbnNlIiwiY3JlYXRlIiwiZGF0YSIsInF1ZXN0aW9uSWQiLCJzdWJtaXR0ZWRBdCIsInF1ZXN0aW9uIiwicHJvamVjdFNjb3JlcyIsImNhbGN1bGF0ZVByb2plY3RTY29yZXMiLCJyZXNwb25zZUlkcyIsInIiLCJlcnJvciIsImNvbnNvbGUiLCJFcnJvciIsIk9SIiwiY2hpbGRyZW4iLCJxIiwicHJvamVjdCIsImRpbWVuc2lvbnMiLCJ0b3RhbFNjb3JlIiwiZm9yRWFjaCIsInNjb3JlIiwid2VpZ2h0IiwicHJvamVjdElkIiwicHJvamVjdE5hbWUiLCJyb3VuZCJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///(api)/./pages/api/surveys/submit-weighted.ts\n");
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ handler)
+/* harmony export */ });
+/* harmony import */ var _lib_prisma__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8047);
+
+async function handler(req, res) {
+    if (req.method !== "POST") {
+        return res.status(405).json({
+            success: false,
+            message: "方法不允许"
+        });
+    }
+    try {
+        const { surveyId , answers  } = req.body;
+        // 验证必填字段
+        if (!surveyId) {
+            return res.status(400).json({
+                success: false,
+                message: "问卷ID不能为空"
+            });
+        }
+        if (!answers || !Array.isArray(answers) || answers.length === 0) {
+            return res.status(400).json({
+                success: false,
+                message: "请完成所有维度的评分"
+            });
+        }
+        // 验证问卷是否存在
+        const survey = await _lib_prisma__WEBPACK_IMPORTED_MODULE_0__/* .prisma.survey.findUnique */ ._.survey.findUnique({
+            where: {
+                id: surveyId
+            },
+            include: {
+                questions: {
+                    where: {
+                        type: "DIMENSION"
+                    },
+                    include: {
+                        options: true
+                    }
+                }
+            }
+        });
+        if (!survey) {
+            return res.status(404).json({
+                success: false,
+                message: "问卷不存在"
+            });
+        }
+        // 检查问卷是否过期
+        if (survey.expiresAt && new Date(survey.expiresAt) < new Date()) {
+            return res.status(400).json({
+                success: false,
+                message: "问卷已过期"
+            });
+        }
+        // 验证所有维度是否都已选择
+        const allDimensions = survey.questions;
+        const answeredDimensionIds = answers.map((a)=>a.dimensionId);
+        const unselectedDimensions = allDimensions.filter((dim)=>!answeredDimensionIds.includes(dim.id));
+        if (unselectedDimensions.length > 0) {
+            return res.status(400).json({
+                success: false,
+                message: `请完成所有维度的评分：${unselectedDimensions.map((d)=>d.content).join("、")}`
+            });
+        }
+        // 验证选项是否有效
+        for (const answer of answers){
+            const dimension = allDimensions.find((d)=>d.id === answer.dimensionId);
+            if (!dimension) {
+                return res.status(400).json({
+                    success: false,
+                    message: `无效的维度ID: ${answer.dimensionId}`
+                });
+            }
+            const option = dimension.options.find((o)=>o.id === answer.optionId);
+            if (!option) {
+                return res.status(400).json({
+                    success: false,
+                    message: `无效的选项ID: ${answer.optionId}`
+                });
+            }
+        }
+        // 创建回答记录 - 为每个维度创建单独的Response记录
+        // 为每次提交生成唯一的用户ID，避免唯一约束冲突
+        const userId = `anonymous_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+        // 使用事务创建所有回答记录
+        const responses = await _lib_prisma__WEBPACK_IMPORTED_MODULE_0__/* .prisma.$transaction */ ._.$transaction(answers.map((answer)=>_lib_prisma__WEBPACK_IMPORTED_MODULE_0__/* .prisma.response.create */ ._.response.create({
+                data: {
+                    surveyId,
+                    userId,
+                    questionId: answer.dimensionId,
+                    optionId: answer.optionId,
+                    submittedAt: new Date()
+                },
+                include: {
+                    question: true,
+                    option: true
+                }
+            })));
+        // 计算项目得分
+        const projectScores = await calculateProjectScores(surveyId, answers);
+        res.status(200).json({
+            success: true,
+            message: "问卷提交成功",
+            data: {
+                responseIds: responses.map((r)=>r.id),
+                projectScores
+            }
+        });
+    } catch (error) {
+        console.error("提交权重问卷失败:", error);
+        res.status(500).json({
+            success: false,
+            message: "服务器内部错误",
+            error: error instanceof Error ? error.message : "未知错误"
+        });
+    }
+}
+async function calculateProjectScores(surveyId, answers) {
+    // 获取问卷的项目和维度结构
+    const survey = await _lib_prisma__WEBPACK_IMPORTED_MODULE_0__/* .prisma.survey.findUnique */ ._.survey.findUnique({
+        where: {
+            id: surveyId
+        },
+        include: {
+            questions: {
+                where: {
+                    OR: [
+                        {
+                            type: "PROJECT"
+                        },
+                        {
+                            type: "DIMENSION"
+                        }
+                    ]
+                },
+                include: {
+                    options: true,
+                    children: {
+                        include: {
+                            options: true
+                        }
+                    }
+                }
+            }
+        }
+    });
+    if (!survey) return [];
+    const projectScores = survey.questions.filter((q)=>q.type === "PROJECT").map((project)=>{
+        const dimensions = project.children;
+        let totalScore = 0;
+        dimensions.forEach((dimension)=>{
+            const answer = answers.find((a)=>a.dimensionId === dimension.id);
+            if (answer) {
+                const option = dimension.options.find((o)=>o.id === answer.optionId);
+                if (option) {
+                    // 计算维度得分：选项分数 × 维度权重
+                    totalScore += option.score * dimension.weight;
+                }
+            }
+        });
+        return {
+            projectId: project.id,
+            projectName: project.content,
+            score: Math.round(totalScore * 100) / 100 // 保留两位小数
+        };
+    });
+    return projectScores;
+}
+
 
 /***/ })
 
@@ -50,7 +213,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 var __webpack_require__ = require("../../../webpack-api-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = (__webpack_exec__("(api)/./pages/api/surveys/submit-weighted.ts"));
+var __webpack_exports__ = (__webpack_exec__(6222));
 module.exports = __webpack_exports__;
 
 })();

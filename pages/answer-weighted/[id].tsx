@@ -17,6 +17,7 @@ interface Dimension {
 interface Project {
   id: string
   content: string
+  imageUrl?: string
   dimensions: Dimension[]
 }
 

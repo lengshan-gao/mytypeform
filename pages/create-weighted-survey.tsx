@@ -617,10 +617,13 @@ export default function CreateWeightedSurveyPage() {
                       padding: '2rem',
                       textAlign: 'center',
                       cursor: 'pointer',
-                      transition: 'border-color 0.2s',
-                      ':hover': {
-                        borderColor: '#3b82f6'
-                      }
+                      transition: 'border-color 0.2s'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = '#3b82f6'
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = '#d1d5db'
                     }}>
                       <input
                         type="file"
