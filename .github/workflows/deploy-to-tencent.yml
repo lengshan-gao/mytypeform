@@ -1,0 +1,46 @@
+name: Deploy to Tencent Cloud SCF
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: |
+        npm install
+        npm install -g serverless @serverless/components
+
+    - name: Configure Tencent Cloud credentials
+      run: |
+        serverless credentials set --provider tencent \
+          --secret-id ${{ secrets.TENCENT_SECRET_ID }} \
+          --secret-key ${{ secrets.TENCENT_SECRET_KEY }}
+
+    - name: Deploy to Tencent Cloud SCF
+      run: |
+        serverless deploy --debug
+      env:
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
+        NEXTAUTH_URL: ${{ secrets.NEXTAUTH_URL }}
+
+    - name: Output deployment info
+      run: |
+        echo "Deployment completed!"
+        echo "Function URL: https://your-function-url"
+        echo "Please check Tencent Cloud console for actual URL"
