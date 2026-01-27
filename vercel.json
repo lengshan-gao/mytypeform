@@ -9,15 +9,21 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "/$1"
     }
   ],
   "functions": {
     "pages/api/**/*.ts": {
-      "maxDuration": 30
+      "maxDuration": 60,
+      "memory": 1024
     }
   },
   "env": {
-    "DATABASE_URL": "@database_url"
+    "NODE_ENV": "production"
+  },
+  "build": {
+    "env": {
+      "NEXT_PUBLIC_APP_URL": "@app_url"
+    }
   }
 }
