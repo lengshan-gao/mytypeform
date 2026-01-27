@@ -70,11 +70,6 @@ git push -u origin main
       "dest": "/index.html"
     }
   ],
-  "functions": {
-    "pages/api/**/*.ts": {
-      "maxDuration": 30
-    }
-  },
   "env": {
     "DATABASE_URL": "@database_url"
   }
