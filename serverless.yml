@@ -1,0 +1,28 @@
+component: scf
+name: survey-system
+inputs:
+  name: survey-system
+  src: .
+  region: ap-guangzhou  # 请根据您的实际地域修改
+  runtime: Nodejs16.13
+  type: web
+  memorySize: 1024
+  timeout: 60
+  environment:
+    variables:
+      NODE_ENV: production
+      DATABASE_URL: ${env:DATABASE_URL}
+      NEXTAUTH_SECRET: ${env:NEXTAUTH_SECRET}
+      NEXTAUTH_URL: ${env:NEXTAUTH_URL}
+  events:
+    - apigw:
+        parameters:
+          protocols:
+            - http
+            - https
+          environment: release
+          endpoints:
+            - path: /
+              method: ANY
+            - path: /{path}
+              method: ANY
