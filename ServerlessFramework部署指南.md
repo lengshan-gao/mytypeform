@@ -34,11 +34,11 @@
 
 | Secret名称 | 说明 | 示例值 |
 |------------|------|--------|
-| `TENCENT_SECRET_ID` | 腾讯云SecretId | `your-tencent-secret-id` |
-| `TENCENT_SECRET_KEY` | 腾讯云SecretKey | `your-tencent-secret-key` |
+| `TENCENT_SECRET_ID` | 腾讯云SecretId | `your-actual-secret-id` |
+| `TENCENT_SECRET_KEY` | 腾讯云SecretKey | `your-actual-secret-key` |
 | `DATABASE_URL` | TDSQL-C连接字符串 | `postgresql://user:pass@host:5432/db` |
-| `NEXTAUTH_SECRET` | 应用安全密钥 | `1234567890a_haha` |
-| `NEXTAUTH_URL` | 应用访问域名 | `https://your-function.ap-guangzhou.app.tcloudbase.com` |
+| `NEXTAUTH_SECRET` | 应用安全密钥 | `` |
+| `NEXTAUTH_URL` | 应用访问域名 | `` |
 
 ### 添加Secrets步骤：
 1. 点击 **New repository secret**
