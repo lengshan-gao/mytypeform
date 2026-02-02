@@ -11,19 +11,5 @@
       "src": "/(.*)",
       "dest": "/$1"
     }
-  ],
-  "functions": {
-    "pages/api/**/*.ts": {
-      "maxDuration": 60,
-      "memory": 1024
-    }
-  },
-  "env": {
-    "NODE_ENV": "production"
-  },
-  "build": {
-    "env": {
-      "NEXT_PUBLIC_APP_URL": "@app_url"
-    }
-  }
+  ]
 }
