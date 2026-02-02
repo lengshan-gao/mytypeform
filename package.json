@@ -4,12 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run prisma:generate && next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prisma:generate": "node -e \"require('child_process').execSync('npx prisma generate', {stdio: 'inherit'})\"",
-    "prisma:push": "npx prisma db push",
-    "prisma:studio": "npx prisma studio"
+    "prisma:generate": "prisma generate",
+    "prisma:push": "prisma db push",
+    "prisma:studio": "prisma studio",
+    "vercel-build": "prisma generate && next build"
   },
   "dependencies": {
     "@prisma/client": "^4.16.2",
